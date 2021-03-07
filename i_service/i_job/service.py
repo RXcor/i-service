@@ -95,26 +95,6 @@ class InstaClient:
         return self.client.LastJson
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #
 # #----------получение id пользователей
 # #api.searchUsername('robotixcorporation') #

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "calculadora",
+    "path": "/calculadora",
+    "component": "/home/vitalij/projects/i-service/frontend/pages/calculadora/index.vue",
+    "chunkName": "pages/calculadora/index"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/vitalij/projects/i-service/frontend/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]
