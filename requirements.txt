@@ -6,3 +6,4 @@ envparse==0.2.0
 psycopg2==2.8.6
 pytz==2021.1
 sqlparse==0.4.1
+-e git+git@github.com/RXcor/Instagram-API-python.git#egg=Instagram-API-python

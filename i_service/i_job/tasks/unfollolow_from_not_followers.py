@@ -36,14 +36,6 @@ def unfollow_from_not_followers(login):
                 balance-=2
                 account.user.update(balance=balance)
                 time.sleep(randint(1, 4))
-
-
-
-
-
-
-
-
         num_retries = test.request.retries
         seconds_to_wait = 2.0 ** num_retries
         raise test.retry(countdown=seconds_to_wait)
