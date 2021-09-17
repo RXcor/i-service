@@ -24,6 +24,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '~/services'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -32,12 +33,58 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
+  axios: {
+     proxy: true,
+     prefix: '/api/'
+  },
+
+  proxy: {
+    '/api/': {
+      // target: 'http://194.226.171.230/',
+      target: 'http://127.0.0.1:8000/',
+      //target: 'http://127.0.0.1:8001/', //stage
+      // pathRewrite: {'^/api/': ''}
+    },
+  },
+
+  router: {
+    middleware: ['auth']
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          global: true,
+          // required: true,
+          type: 'Bearer'
+        },
+        user: {
+          property: 'user',
+          // autoFetch: true
+        },
+        endpoints: {
+          login: { url: '/api/jwt/create/', method: 'post' },
+          // logout: { url: '/api/jwt/logout', method: 'post' },
+          user: { url: '/api/users/me/', method: 'get' }
+        },
+        token: {
+          property: 'access',
+          maxAge: 3600,
+        }
+      }
+    }
+  },
+
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {

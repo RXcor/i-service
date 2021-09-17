@@ -1,5 +1,5 @@
-import Raffle from './job'
+import Jobs from './job'
 
 export default ({ app }, inject) => {
-  inject('jobService', new Job(app));
+  inject('jobService', new Jobs(app));
 }

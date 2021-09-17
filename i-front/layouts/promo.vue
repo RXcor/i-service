@@ -2,6 +2,15 @@
   <v-app dark>
 
     <v-app-bar app>
+      <v-toolbar-title>Инстаграм помощник</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+     
+        <span>Войти</span>
+        <v-btn icon nuxt to="/login">
+          <v-icon>mdi-login</v-icon>
+        </v-btn>
+     
       <!-- -->
     </v-app-bar>
 
@@ -23,23 +32,24 @@
                               <li></li>
                       </ul>
 
-
-
         <!-- If using vue-router -->
         <nuxt />
       </v-container>
     </v-main>
 
     <v-footer
-      :absolute="!fixed"
+      fixed
       app
+      elevation="10"
     >
       <span>&copy; i-service {{ new Date().getFullYear() }}</span>
     </v-footer>
+
   </v-app>
 </template>
 <script>
 export default {
+  auth: false,
   data () {
     return {
       clipped: false,
@@ -50,11 +60,7 @@ export default {
 }
 </script>
 <style>
-html {
-  overflow-x: hidden;
-  overflow-x: hidden;
-  overflow:hidden;
-}
+
 
 #hi {
   background: linear-gradient(-45deg, rgb(247, 96, 203), rgb(66, 54, 255));
@@ -79,7 +85,7 @@ html {
     background: #4e54c8;
     //background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
     width: 100%;
-    height:100vh;
+    /* height:100vh; */
 
 
 }

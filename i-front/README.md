@@ -16,5 +16,14 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
+Блоки для nginx
+
+	root /w/blue/m/test-front;
+
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).

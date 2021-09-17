@@ -24,12 +24,9 @@ class Job(models.Model):
         (6, 'Розыгрыш')
     )
 
-    TYPES_PSEUDO = {
-        3: 'unfollow_from_not_followers'
-    }
-
     type_of = models.IntegerField(choices=TYPES, blank=False)
-    data = models.CharField(max_length=255, null=True, blank=True)
+    data = models.JSONField(null=True, blank=True)
+    #data={'url': 'some/url', 'options':{'some': 'options'}}
     is_complete = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     completed = models.DateTimeField(blank=True, null=True)
@@ -37,6 +34,7 @@ class Job(models.Model):
     progress = models.IntegerField(blank=True, null=True)
     vinner = models.CharField(max_length=255, null=True, blank=True)
     result = models.JSONField(null=True, blank=True)
+
 
     def __str__(self):
         return f'{self.id}-{self.type_of}'
